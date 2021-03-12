@@ -1,0 +1,7 @@
+---
+ - hosts: app3
+   tasks:
+     - name: Fetch the file from the mwiapp01 to master
+       run_once: yes
+       fetch: src=/home/devops/twofetch.txt dest=/home/devops/ flat=yes
+       when: "{{ inventory_hostname  == '172.31.25.165' }}"

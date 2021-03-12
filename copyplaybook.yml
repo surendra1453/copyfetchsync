@@ -1,0 +1,16 @@
+- name: "Copy files"
+  hosts: all
+  become: yes
+  gather_facts: false
+  vars:
+    source: /home/devops/one.txt
+    dest: /home/devops/
+  tasks:
+    - name: "Copy file"
+      copy:
+        src: "{{source}}"
+        dest: "{{dest}}"
+        owner: devops
+        group: root
+        mode: 777
+
